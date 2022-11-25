@@ -24,7 +24,7 @@ else:
 source_dir = START_PATH + FOLDER_SEPARATOR + 'Images' + FOLDER_SEPARATOR
 
 if (len(sys.argv) != 3):
-    print("error: use 'python3 imgTOpdfCL.py [rm/notrm] [namefile]'")
+    print("error: use 'python3 imgTOpdfCL.py [rem/notrem] [namefile]'")
     exit()
 
 deleteImages = sys.argv[1]
@@ -61,7 +61,7 @@ for i in range(1, len(fileList)):
 
 # if Images folder is not empty, save the pdf and delete or not the imgs files (based on the user choice)
 if (len(fileList) != 0):
-    fileList[0].save(outFilePath, save_all=True, append_images=tmpList)
+    fileList[0].save(outFilePath, save_all=True, append_images=fileList[1:])
     if (deleteImages.upper() == "RM"):
         for file in os.listdir(source_dir):
             if file.split('.')[-1] in ('png', 'jpg', 'jpeg'):

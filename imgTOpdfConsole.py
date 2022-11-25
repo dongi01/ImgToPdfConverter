@@ -65,13 +65,9 @@ for file in simpleFileList:
         image = Image.open(source_dir + file )
         fileList.append(image.convert('RGB'))
 
-tmpList = []
-for i in range(1, len(fileList)):
-    tmpList.append(fileList[i])
-
 # if Images folder is not empty, save the pdf and delete or not the imgs files (based on the user choice)
 if (len(fileList) != 0):
-    fileList[0].save(outFilePath, save_all=True, append_images=tmpList)
+    fileList[0].save(outFilePath, save_all=True, append_images=fileList[1:])
     if (deleteImages.upper() == "YES"):
         for file in os.listdir(source_dir):
             if file.split('.')[-1] in ('png', 'jpg', 'jpeg'):
