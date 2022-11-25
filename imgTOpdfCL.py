@@ -29,7 +29,7 @@ if (len(sys.argv) != 3):
 
 deleteImages = sys.argv[1]
 # checks for input chois about deleating img files after conversion
-if (deleteImages.upper() != "RM" and deleteImages.upper() != "NOTRM"):
+if (deleteImages.upper() != "REM" and deleteImages.upper() != "NOTREM"):
     print("Input not recognized")
     exit()
 
@@ -46,7 +46,7 @@ except:
 # for each file: open, convert and add it to the list
 fileList = []
 for file in simpleFileList:
-    if file.split('.')[-1] in ('png', 'jpg', 'jpeg'):
+    if file.split('.')[-1].lower() in ('png', 'jpg', 'jpeg'):
         try:
             image = Image.open(source_dir + file )
         except:

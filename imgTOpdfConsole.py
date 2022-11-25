@@ -61,7 +61,7 @@ except:
 # for each file: open, convert and add it to the list
 fileList = []
 for file in simpleFileList:
-    if file.split('.')[-1] in ('png', 'jpg', 'jpeg'):
+    if file.split('.')[-1].lower() in ('png', 'jpg', 'jpeg'):
         image = Image.open(source_dir + file )
         fileList.append(image.convert('RGB'))
 
